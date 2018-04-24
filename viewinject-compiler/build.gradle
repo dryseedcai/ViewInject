@@ -1,0 +1,10 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':viewinject-annotation')
+    compile 'com.google.auto.service:auto-service:1.0-rc2' //auto-service库可以帮我们去生成META-INF等信息。
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
