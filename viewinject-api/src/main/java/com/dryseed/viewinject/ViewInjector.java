@@ -32,7 +32,10 @@ public class ViewInjector {
 
     private static ViewInject findProxyActivity(Object activity) {
         try {
-            //1. 根据传入的host寻找我们生成的代理类：例如MainActivity->MainActity$$ViewInjector。
+            /**
+             * 1. 根据传入的host寻找我们生成的代理类：例如MainActivity->MainActity$$ViewInjector。
+             * {@see com.dryseed.viewinject.ProxyInfo}
+             */
             Class clazz = activity.getClass();
             Class injectorClazz = Class.forName(clazz.getName() + SUFFIX);
             //2. 强转成ViewInject接口

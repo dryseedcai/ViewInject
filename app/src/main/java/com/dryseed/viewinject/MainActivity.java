@@ -3,12 +3,17 @@ package com.dryseed.viewinject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * 基于编译时注解的View注入框架
+ * <p>
+ * 基本思想：
+ * 类似ButterKnife，编译时获取到指定注解上的信息，生成代理类（ProxyInfo），
+ * 并在运行时通过接口调用代理类的inject方法，将view注入到类成员上。
+ */
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.id_textview)
     TextView mTv;

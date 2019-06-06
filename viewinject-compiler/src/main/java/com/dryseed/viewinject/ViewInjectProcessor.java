@@ -50,8 +50,9 @@ public class ViewInjectProcessor extends AbstractProcessor {
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
-
+        //跟日志相关的辅助类
         messager = processingEnv.getMessager();
+        //跟元素相关的辅助类，帮助我们去获取一些元素相关的信息
         elementUtils = processingEnv.getElementUtils();
     }
 
@@ -76,6 +77,7 @@ public class ViewInjectProcessor extends AbstractProcessor {
     /**
      * process中的实现，相比较会比较复杂一点，一般你可以认为两个大步骤：
      * 1. 收集信息
+     * 就是根据你的注解声明，拿到对应的Element，然后获取到我们所需要的信息，这个信息肯定是为了后面生成JavaFileObject所准备的。
      * 2. 生成代理类（本文把编译时生成的类叫代理类）
      *
      * @param annotations
